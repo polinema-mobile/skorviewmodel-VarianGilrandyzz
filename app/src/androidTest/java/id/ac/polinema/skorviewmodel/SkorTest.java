@@ -22,95 +22,95 @@ public class SkorTest {
 
 	@Rule
 	public ActivityScenarioRule<MainActivity> activityScenarioRule
-		= new ActivityScenarioRule<>(MainActivity.class);
+			= new ActivityScenarioRule<>(MainActivity.class);
 
 	@Before
 	public void before() {
 		activityScenarioRule.getScenario()
-			.onActivity(new ActivityScenario.ActivityAction<MainActivity>() {
-				@Override
-				public void perform(MainActivity activity) {
-					activity.getSupportFragmentManager()
-						.beginTransaction();
-				}
-			});
+				.onActivity(new ActivityScenario.ActivityAction<MainActivity>() {
+					@Override
+					public void perform(MainActivity activity) {
+						activity.getSupportFragmentManager()
+								.beginTransaction();
+					}
+				});
 	}
 
 	@Test
 	public void addScoreHomeTest() {
 		onView(withId(R.id.button_add_home))
-			.perform(click());
+				.perform(click());
 		onView(withId(R.id.input_name))
-			.perform(typeText("Andi"));
+				.perform(typeText("Andi"));
 		onView(withId(R.id.input_minute))
-			.perform(typeText("40"))
-			.perform(closeSoftKeyboard());
+				.perform(typeText("40"))
+				.perform(closeSoftKeyboard());
 		onView(withId(R.id.button_save))
-			.perform(click());
+				.perform(click());
 		onView(withId(R.id.text_home_score))
-			.check(matches(withText("1")));
+				.check(matches(withText("1")));
 	}
 
 	@Test
 	public void addScoreAwayTest() {
 		onView(withId(R.id.button_add_away))
-			.perform(click());
+				.perform(click());
 		onView(withId(R.id.input_name))
-			.perform(typeText("Budi"));
+				.perform(typeText("Budi"));
 		onView(withId(R.id.input_minute))
-			.perform(typeText("45"))
-			.perform(closeSoftKeyboard());
+				.perform(typeText("45"))
+				.perform(closeSoftKeyboard());
 		onView(withId(R.id.button_save))
-			.perform(click());
+				.perform(click());
 		onView(withId(R.id.text_away_score))
-			.check(matches(withText("1")));
+				.check(matches(withText("1")));
 	}
 
 	@Test
 	public void addScoreHomeScorerTest() {
 		onView(withId(R.id.button_add_home))
-			.perform(click());
+				.perform(click());
 		onView(withId(R.id.input_name))
-			.perform(typeText("Candra"));
+				.perform(typeText("Candra"));
 		onView(withId(R.id.input_minute))
-			.perform(typeText("50"))
-			.perform(closeSoftKeyboard());
+				.perform(typeText("50"))
+				.perform(closeSoftKeyboard());
 		onView(withId(R.id.button_save))
-			.perform(click());
+				.perform(click());
 		onView(withId(R.id.button_add_home))
-			.perform(click());
+				.perform(click());
 		onView(withId(R.id.input_name))
-			.perform(typeText("Beni"));
+				.perform(typeText("Beni"));
 		onView(withId(R.id.input_minute))
-			.perform(typeText("60"))
-			.perform(closeSoftKeyboard());
+				.perform(typeText("60"))
+				.perform(closeSoftKeyboard());
 		onView(withId(R.id.button_save))
-			.perform(click());
+				.perform(click());
 		onView(withId(R.id.text_home_scorer))
-			.check(matches(withText("Candra 50\" Beni 60\" ")));
+				.check(matches(withText("Candra 50\" Beni 60\" ")));
 	}
 
 	@Test
 	public void addScoreAwayScorerTest() {
 		onView(withId(R.id.button_add_away))
-			.perform(click());
+				.perform(click());
 		onView(withId(R.id.input_name))
-			.perform(typeText("Deni"));
+				.perform(typeText("Deni"));
 		onView(withId(R.id.input_minute))
-			.perform(typeText("60"))
-			.perform(closeSoftKeyboard());
+				.perform(typeText("60"))
+				.perform(closeSoftKeyboard());
 		onView(withId(R.id.button_save))
-			.perform(click());
+				.perform(click());
 		onView(withId(R.id.button_add_away))
-			.perform(click());
+				.perform(click());
 		onView(withId(R.id.input_name))
-			.perform(typeText("Joni"));
+				.perform(typeText("Joni"));
 		onView(withId(R.id.input_minute))
-			.perform(typeText("70"))
-			.perform(closeSoftKeyboard());
+				.perform(typeText("70"))
+				.perform(closeSoftKeyboard());
 		onView(withId(R.id.button_save))
-			.perform(click());
+				.perform(click());
 		onView(withId(R.id.text_away_scorer))
-			.check(matches(withText("Deni 60\" Joni 70\" ")));
+				.check(matches(withText("Deni 60\" Joni 70\" ")));
 	}
 }
